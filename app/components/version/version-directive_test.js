@@ -1,7 +1,7 @@
 'use strict';
 
-describe('myApp.version module', function() {
-  beforeEach(module('myApp.version'));
+describe('w2dmApp.version module', function() {
+  beforeEach(module('w2dmApp.version'));
 
   describe('app-version directive', function() {
     it('should print current version', function() {

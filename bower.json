@@ -1,15 +1,33 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "w2dm",
+  "description": "way2day mobile",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/ssergienko/w2d_mobile_ui",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
-    "angular-loader": "~1.4.0",
-    "angular-mocks": "~1.4.0",
-    "html5-boilerplate": "~5.2.0"
+    "angular": "~1.4.9",
+    "angular-route": "~1.4.9",
+    "angular-loader": "~1.4.9",
+    "angular-mocks": "~1.4.9",
+    "html5-boilerplate": "~5.3.0"
+  },
+  "authors": [
+    "ssergienko <sergey.s.sergienko@gmail.com>"
+  ],
+  "main": "app/index.html",
+  "moduleType": [],
+  "keywords": [
+    "w2d"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "~1.4.9"
   }
 }

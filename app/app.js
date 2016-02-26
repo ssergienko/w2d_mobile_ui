@@ -1,12 +1,21 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('w2dmApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  'w2dmApp.places',
+  'w2dmApp.map',
+  'w2dmApp.version'
+])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/places', {
+      templateUrl: 'places/places.html',
+      controller: 'PlacesCtrl'
+    })
+    .when('/map', {
+      templateUrl: 'map/map.html',
+      controller: 'MapCtrl'
+    })
+    .otherwise({redirectTo: '/places'});
 }]);
