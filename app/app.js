@@ -5,7 +5,11 @@ angular.module('w2dmApp', [
   'ngRoute',
   'w2dmApp.places',
   'w2dmApp.map',
-  'w2dmApp.version'
+  'w2dmApp.version',
+  'w2dmApp.menu',
+  'ngMaterial',
+  'ngMessages',
+  //'material.svgAssetsCache'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
