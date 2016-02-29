@@ -22,4 +22,9 @@ angular.module('w2dmApp', [
       controller: 'MapCtrl'
     })
     .otherwise({redirectTo: '/places'});
-}]);
+}])
+.run(function ($window) {
+    angular.element(document).ready(function() {
+        angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
+    });
+});

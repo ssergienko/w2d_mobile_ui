@@ -4,12 +4,7 @@ angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('altTheme').primaryPalette('purple');
     })
-    .controller('PlacesCtrl', function($scope, $window) {
-
-        angular.element(document).ready(function() {
-            angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
-        });
-
+    .controller('PlacesCtrl', function($scope) {
         var imagePath = 'img/list/60.jpeg';
         $scope.messages = [
             {
