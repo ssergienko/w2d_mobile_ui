@@ -8,7 +8,7 @@ angular.module('w2dmApp', [
   'w2dmApp.version',
   'w2dmApp.menu',
   'ngMaterial',
-  'ngMessages',
+  'ngMessages'
   //'material.svgAssetsCache'
 ])
 .config(['$routeProvider', function($routeProvider) {

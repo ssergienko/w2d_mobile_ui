@@ -10,46 +10,15 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="components/toolbar/toolbar.css">
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 </head>
 <body>
-    <div class="content" layout="column" ng-cloak style="height: 800px;">
-        <md-toolbar>
-            <div class="md-toolbar-tools">
+    <div class="content" id="content" layout="column" ng-cloak>
 
-                <!-- left menu -->
-                <div ng-controller="MenuCtrl as menu" class="left-menu">
-                    <md-menu md-offset="0 65">
-                        <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="menu.openMenu($mdOpenMenu, $event)">
-                            <md-icon md-menu-origin md-svg-icon="img/icons/menu.svg"></md-icon>
-                        </md-button>
-                        <md-menu-content width="4">
-                            <md-menu-item>
-                                <md-button ng-click="">
-                                    <md-icon md-svg-icon="" md-menu-align-target></md-icon>
-                                    <a href="#/places">Places</a>
-                               </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                                <md-button ng-click="">
-                                    <md-icon md-svg-icon=""></md-icon>
-                                    <a href="#/map">Map</a>
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
-                </div>
+        <div toolbar></div>
 
-                <h2><span>Way2day.ru</span></h2>
-                <span flex=""></span>
-
-                <md-button class="md-icon-button" aria-label="More">
-                    <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-                </md-button>
-
-            </div>
-        </md-toolbar>
         <md-content flex layout-padding>
             <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -79,6 +48,7 @@
     <script src="places/places.js"></script>
     <script src="map/map.js"></script>
     <script src="components/menu/MenuCtrl.js"></script>
+    <script src="components/toolbar/toolbar-directive.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>

@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial'])
+angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
     .config(function($mdThemingProvider) {
-        $mdThemingProvider.theme('altTheme')
-            .primaryPalette('purple');
+        $mdThemingProvider.theme('altTheme').primaryPalette('purple');
     })
-    .controller('PlacesCtrl', function($scope) {
+    .controller('PlacesCtrl', function($scope, $window) {
+
+        angular.element(document).ready(function() {
+            angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
+        });
+
         var imagePath = 'img/list/60.jpeg';
         $scope.messages = [
             {
