@@ -14,11 +14,11 @@ angular.module('w2dmApp', [
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/places', {
-      templateUrl: 'places/places.html',
+      templateUrl: 'controllers/places/places.html',
       controller: 'PlacesCtrl'
     })
     .when('/map', {
-      templateUrl: 'map/map.html',
+      templateUrl: 'controllers/map/map.html',
       controller: 'MapCtrl'
     })
     .otherwise({redirectTo: '/places'});

@@ -1,6 +1,10 @@
+@import "../../globals.scss";
+
+$white: rgba(255,255,255,0.87);
+
 .toolbar-container {
-  background-color: #3f51b5;
-  color: rgba(255, 255, 255, 0.87);
+  background-color: $tootbar-background;
+  color: $white;
   display: flex;
   font-size: 20px;
   letter-spacing: .005em;
@@ -13,9 +17,16 @@
   flex-direction: row;
   max-height: 64px;
   padding: 0 5px;
-  margin: 0; }
-  .toolbar-container .title {
+  margin: 0;
+
+  .title {
     flex-grow: 1;
-    text-align: center; }
-  .toolbar-container md-icon {
-    fill: rgba(255, 255, 255, 0.87) !important; }
+    text-align: center;
+  }
+
+  md-icon {
+    fill: $white !important;
+  }
+
+
+}
