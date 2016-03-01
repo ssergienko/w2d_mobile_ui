@@ -1,8 +1,10 @@
 /**
  * Created by Sergei_Sergienko on 3/1/2016.
  */
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+'use strict';
+
+var gulp = require('gulp'),
+    sass = require('gulp-sass');
 
 gulp.task('styles', function() {
     gulp.src('src/**/*.scss')
@@ -11,6 +13,9 @@ gulp.task('styles', function() {
 });
 
 //Watch task
-gulp.task('watch',function() {
+gulp.task('watch-styles',function() {
     gulp.watch('src/**/*.scss', ['styles']);
+    gulp.watch('src/*.scss', ['styles']);
 });
+
+gulp.task('default', ['watch-styles']);
