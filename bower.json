@@ -9,7 +9,8 @@
     "angular-material": "^1.0.5",
     "angular-route": "^1.5.0",
     "angular-loader": "^1.5.0",
-    "classie": "^1.0.1"
+    "classie": "^1.0.1",
+    "angular-mocks": "^1.5.0"
   },
   "authors": [
     "ssergienko <sergey.s.sergienko@gmail.com>"
@@ -22,8 +23,6 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "app/bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ]
 }

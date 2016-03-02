@@ -4,7 +4,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    karmaServer = require('karma').Server;
 
 gulp.task('styles', function() {
     gulp.src('src/**/*.scss')
@@ -18,4 +19,11 @@ gulp.task('watch-styles',function() {
     gulp.watch('src/*.scss', ['styles']);
 });
 
-gulp.task('default', ['watch-styles']);
+gulp.task('test', function (done) {
+    return new karmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done).start();
+});
+
+gulp.task('default', ['watch-styles', 'test']);

@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
-    .config(function($mdThemingProvider) {
-        $mdThemingProvider.theme('altTheme').primaryPalette('purple');
-    })
-    .controller('PlacesCtrl', function($scope) {
-        var imagePath = 'img/list/60.jpeg';
+    .controller('PlacesCtrl', ['$scope', function($scope) {
+
+        var imagePath = 'img/icons/favicon.png';
         $scope.messages = [
             {
                 face : imagePath,
@@ -85,4 +83,4 @@ angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
                 notes: " I'll be in your neighborhood doing errands"
             },
         ];
-    });
+    }]);
