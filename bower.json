@@ -15,10 +15,9 @@
   "authors": [
     "ssergienko <sergey.s.sergienko@gmail.com>"
   ],
-  "main": "app/index.html",
   "moduleType": [],
   "keywords": [
-    "w2d"
+    "w2dm"
   ],
   "ignore": [
     "**/.*",

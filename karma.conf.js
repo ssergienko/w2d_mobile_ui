@@ -13,8 +13,8 @@ module.exports = function(config){
       'bower_components/angular-material/angular-material.min.js',
       'bower_components/classie/classie.js',
 
-      'app/*.js',
-      'app/**/*.js',
+      'dev/*.js',
+      'dev/**/*.js',
       'e2e-tests/**/*.js'
 
     ],

@@ -3,7 +3,7 @@
 angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
     .controller('PlacesCtrl', ['$scope', function($scope) {
 
-        var imagePath = 'img/icons/favicon.png';
+        var imagePath = '../img/icons/favicon.png';
         $scope.messages = [
             {
                 face : imagePath,

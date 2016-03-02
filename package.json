@@ -8,8 +8,12 @@
   "devDependencies": {
     "bower": "^1.3.1",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.0.1",
     "gulp-inject": "^1.2.0",
+    "gulp-minify": "0.0.5",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-resolve-dependencies": "^2.2.0",
     "gulp-rimraf": "^0.1.1",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.5.1",
@@ -37,13 +41,14 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
+    "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'dev/index-async.html');\""
   },
   "dependencies": {
     "browser-sync": "^2.11.1",
     "del": "^2.2.0",
     "gulp-jasmine": "^2.3.0",
     "gulp-karma": "0.0.5",
+    "gulp-uglifyjs": "^0.6.2",
     "superstatic": "^4.0.2"
   }
 }
