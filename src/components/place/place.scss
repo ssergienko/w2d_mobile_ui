@@ -3,17 +3,42 @@
 .place {
     img {
       width: 100%;
+      margin: 0px;
+      padding: 0px;
     }
     &-description {
       margin-top: -4px;
       opacity: 0.6;
-      background-color: #0d77b6;
+      background-color: $description-background;
       padding: 5px 16px;
       color: $white;
     }
     &-toolbar {
       height: 60px;
-      background-color: $tootbar-background;
+      background-color: $toolbar-background;
       padding: 0px 16px;
     }
+
+    &-author {
+      display: flex;
+      background-color: $toolbar-background;
+      padding: 10px;
+      font-size: 1.2em;
+      .avatar {
+        width: 40px;
+        height: 40px;
+        @include circle(20px);
+        background-color: $white;
+      }
+      .name {
+        flex-grow: 1;
+        color: $white;
+        padding: 10px;
+      }
+      .distance {
+        color: $white;
+        padding: 8px;
+      }
+    }
+
 }

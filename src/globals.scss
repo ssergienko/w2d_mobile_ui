@@ -1,5 +1,12 @@
 // variables
-
-$tootbar-background: rgb(63,81,181);
-
+$toolbar-background: rgb(63,81,181);
 $white: rgba(255,255,255,0.87);
+$description-background: #0d77b6;
+
+// mixins
+
+@mixin circle ($radius) {
+  -moz-border-radius: $radius / $radius;
+  -webkit-border-radius: $radius $radius;
+  border-radius: $radius / $radius;
+}
