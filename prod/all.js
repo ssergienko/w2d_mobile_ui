@@ -2,31 +2,44 @@
 
 // Declare app level module which depends on views, and components
 angular.module('w2dmApp', [
-  'ngRoute',
-  'w2dmApp.places',
-  'w2dmApp.map',
-  'w2dmApp.version',
-  'w2dmApp.menu',
-  'ngMaterial',
-  'ngMessages'
-  //'material.svgAssetsCache'
+    'ngRoute',
+    'ngMaterial',
+    'ngMessages',
+
+    'w2dmApp.map',
+    'w2dmApp.version',
+    'w2dmApp.menu',
+
+    'w2dmApp.places'
 ])
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-    .when('/places', {
-      templateUrl: 'controllers/places/places.html',
-      controller: 'PlacesCtrl'
-    })
-    .when('/map', {
-      templateUrl: 'controllers/map/map.html',
-      controller: 'MapCtrl'
-    })
-    .otherwise({redirectTo: '/places'});
+
+    $routeProvider
+        .when('/places', {
+            templateUrl: 'controllers/places/places.html',
+            controller: 'PlacesCtrl'
+        })
+        .when('/map', {
+            templateUrl: 'controllers/map/map.html',
+            controller: 'MapCtrl'
+        })
+        .otherwise({redirectTo: '/places'});
 }])
 .run(function ($window) {
     angular.element(document).ready(function() {
         angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
     });
+});
+/**
+ * Created by Sergei_Sergienko on 3/9/2016.
+ */
+angular.module('w2dmApp.placesService', ['ngResource'])
+    .factory('Places', function ($resource) {
+        return $resource('http://devel.way2day.ru/api/places/getbycoords?lat=59.939095&lng=30.315868&_=1457518554341', {},
+            {
+                'get': {method:'GET', isArray: true }
+            }
+        );
 });
 'use strict';
 
@@ -124,87 +137,12 @@ angular.module('w2dmApp.map', ['ngRoute'])
     }]);
 'use strict';
 
-angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar'])
-    .controller('PlacesCtrl', ['$scope', function($scope) {
-
-        var imagePath = '../img/icons/favicon.png';
-        $scope.messages = [
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-        ];
+angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar', 'w2dmApp.placesService'])
+    .controller('PlacesCtrl', ['$scope', 'Places', function($scope, PlacesResource) {
+        PlacesResource.get().$promise.then(function(places) {
+            $scope.places = places;
+        });
+        $scope.noEmptyImages = function (place) {
+            return place.image_url !== 'no-image.png';
+        };
     }]);

@@ -9,7 +9,9 @@
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="components/toolbar/toolbar.css">
+  <link rel="stylesheet" href="components/menu/menu.css">
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 </head>
@@ -26,15 +28,9 @@
             </md-button>
         </toolbar>
 
-        <md-content flex layout-padding>
-            <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
-
+        <md-content flex>
             <div ng-view></div>
-
             <div>Angular seed app: v<span app-version></span></div>
-
         </md-content>
     </div>
 
@@ -47,9 +43,18 @@
     <script src="../bower_components/angular-aria/angular-aria.js"></script>
     <script src="../bower_components/angular-messages/angular-messages.js"></script>
     <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="../bower_components/classie/classie.js"></script>
 
-    <script src="all.min.js"></script>
+    <script src="app.js"></script>
+    <script src="services/placesService.js"></script>
+    <script src="controllers/places/places.js"></script>
+    <script src="controllers/map/map.js"></script>
+    <script src="components/menu/menu-directive.js"></script>
+    <script src="components/toolbar/toolbar-directive.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 
 </body>
 </html>
