@@ -1,3 +1,1 @@
-<div class="plasesList" ng-repeat="place in places | filter: noEmptyImages">
-    <img ng-src="{{place.image_url}}" width="100%" />
-</div>
+<div place-directive ng-repeat="place in places | filter: noEmptyImages" ng-cloak></div>

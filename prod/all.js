@@ -5,12 +5,7 @@ angular.module('w2dmApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-
-    'w2dmApp.map',
-    'w2dmApp.version',
-    'w2dmApp.menu',
-
-    'w2dmApp.places'
+    'ngResource'
 ])
 .config(['$routeProvider', function($routeProvider) {
 
@@ -33,17 +28,17 @@ angular.module('w2dmApp', [
 /**
  * Created by Sergei_Sergienko on 3/9/2016.
  */
-angular.module('w2dmApp.placesService', ['ngResource'])
-    .factory('Places', function ($resource) {
+angular.module('w2dmApp')
+    .factory('placesService',['$resource', function ($resource) {
         return $resource('http://devel.way2day.ru/api/places/getbycoords?lat=59.939095&lng=30.315868&_=1457518554341', {},
             {
                 'get': {method:'GET', isArray: true }
             }
         );
-});
+}]);
 'use strict';
 
-angular.module('w2dmApp.menu', [])
+angular.module('w2dmApp')
     .directive('menu', [function() {
         return {
             scope: {},
@@ -84,7 +79,7 @@ angular.module('w2dmApp.menu', [])
  */
 'use strict';
 
-angular.module('w2dmApp.toolbar', ['ngMaterial', 'w2dmApp.menu'])
+angular.module('w2dmApp')
     .directive('toolbar', [function() {
         return {
             scope: {},
@@ -99,6 +94,21 @@ angular.module('w2dmApp.toolbar', ['ngMaterial', 'w2dmApp.menu'])
                 }
             }]
         };
+    }]);
+/**
+ * Created by Sergei_Sergienko on 3/9/2016.
+ */
+'use strict';
+
+angular.module('w2dmApp')
+    .directive('placeDirective', [function() {
+        return {
+            scope: true,
+            templateUrl: 'components/place/place.html',
+            controller: ['$scope', function ($scope) {
+
+            }]
+        }
     }]);
 'use strict';
 
@@ -131,15 +141,15 @@ angular.module('w2dmApp.version', [
 
 'use strict';
 
-angular.module('w2dmApp.map', ['ngRoute'])
+angular.module('w2dmApp')
     .controller('MapCtrl', ['$scope', function($scope) {
 
     }]);
 'use strict';
 
-angular.module('w2dmApp.places', ['ngRoute', 'ngMaterial', 'w2dmApp.toolbar', 'w2dmApp.placesService'])
-    .controller('PlacesCtrl', ['$scope', 'Places', function($scope, PlacesResource) {
-        PlacesResource.get().$promise.then(function(places) {
+angular.module('w2dmApp')
+    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
+        placesService.get().$promise.then(function(places) {
             $scope.places = places;
         });
         $scope.noEmptyImages = function (place) {

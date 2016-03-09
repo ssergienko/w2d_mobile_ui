@@ -1,0 +1,19 @@
+@import "../../globals.scss";
+
+.place {
+    img {
+      width: 100%;
+    }
+    &-description {
+      margin-top: -4px;
+      opacity: 0.6;
+      background-color: #0d77b6;
+      padding: 5px 16px;
+      color: $white;
+    }
+    &-toolbar {
+      height: 60px;
+      background-color: $tootbar-background;
+      padding: 0px 16px;
+    }
+}

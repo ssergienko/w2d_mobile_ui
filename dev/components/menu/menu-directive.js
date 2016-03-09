@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('w2dmApp.menu', [])
+angular.module('w2dmApp')
     .directive('menu', [function() {
         return {
             scope: {},

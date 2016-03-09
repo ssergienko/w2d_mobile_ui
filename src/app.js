@@ -5,12 +5,7 @@ angular.module('w2dmApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-
-    'w2dmApp.map',
-    'w2dmApp.version',
-    'w2dmApp.menu',
-
-    'w2dmApp.places'
+    'ngResource'
 ])
 .config(['$routeProvider', function($routeProvider) {
 

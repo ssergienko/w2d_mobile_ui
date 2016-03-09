@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="components/toolbar/toolbar.css">
   <link rel="stylesheet" href="components/menu/menu.css">
+    <link rel="stylesheet" href="components/place/place.css">
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 </head>
@@ -29,8 +30,11 @@
         </toolbar>
 
         <md-content flex>
+
             <div ng-view></div>
+
             <div>Angular seed app: v<span app-version></span></div>
+
         </md-content>
     </div>
 
@@ -52,6 +56,7 @@
     <script src="controllers/map/map.js"></script>
     <script src="components/menu/menu-directive.js"></script>
     <script src="components/toolbar/toolbar-directive.js"></script>
+    <script src="components/place/place-directive.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>

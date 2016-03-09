@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('w2dmApp.toolbar', ['ngMaterial', 'w2dmApp.menu'])
+angular.module('w2dmApp')
     .directive('toolbar', [function() {
         return {
             scope: {},
