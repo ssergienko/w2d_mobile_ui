@@ -6,7 +6,7 @@
 <img ng-src="{{place.image_url}}" width="100%" />
 <div class="place-description">
     <h3>{{place.title}}</h3>
-    <p>{{place.long_text | cut:true:placeTextLimit:' ...'}}</p>
+    <div ng-bind-html="place.long_text | cut:true:placeTextLimit:' ...'"></div>
     <p><a href="http://{{lifeSiteUrl}}/place/{{place.id}}">Read more</a> / <a href="#map/{{place.id}}">View on a map</a></p>
 </div>
 <div class="place-toolbar">

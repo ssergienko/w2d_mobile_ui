@@ -5,7 +5,8 @@ angular.module('w2dmApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-    'ngResource'
+    'ngResource',
+    'ngSanitize'
 ])
 .config(['$routeProvider', function($routeProvider) {
 

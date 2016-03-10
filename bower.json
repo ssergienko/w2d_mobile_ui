@@ -11,7 +11,8 @@
     "angular-loader": "^1.5.0",
     "classie": "^1.0.1",
     "angular-mocks": "^1.5.0",
-    "angular-resource": "^1.5.0"
+    "angular-resource": "^1.5.0",
+    "angular-sanitize": "^1.5.0"
   },
   "authors": [
     "ssergienko <sergey.s.sergienko@gmail.com>"

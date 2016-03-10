@@ -5,7 +5,8 @@ angular.module('w2dmApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-    'ngResource'
+    'ngResource',
+    'ngSanitize'
 ])
 .config(['$routeProvider', function($routeProvider) {
 
@@ -144,6 +145,23 @@ angular.module('w2dmApp.version', [
 
 .value('version', '0.1');
 
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('MapCtrl', ['$scope', function($scope) {
+
+    }]);
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
+        placesService.get().$promise.then(function(places) {
+            $scope.places = places;
+        });
+        $scope.noEmptyImages = function (place) {
+            return place.image_url !== 'no-image.png';
+        };
+    }]);
 /**
  * Created by Sergei_Sergienko on 3/10/2016.
  */
@@ -167,20 +185,3 @@ angular.module('w2dmApp')
             return newvalue + (tail || ' …');
         };
     });
-'use strict';
-
-angular.module('w2dmApp')
-    .controller('MapCtrl', ['$scope', function($scope) {
-
-    }]);
-'use strict';
-
-angular.module('w2dmApp')
-    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
-        placesService.get().$promise.then(function(places) {
-            $scope.places = places;
-        });
-        $scope.noEmptyImages = function (place) {
-            return place.image_url !== 'no-image.png';
-        };
-    }]);
