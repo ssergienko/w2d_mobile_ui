@@ -2,7 +2,7 @@
 
 describe('w2dmApp.places module', function() {
 
-  beforeEach(module('w2dmApp.places'));
+  beforeEach(module('w2dmApp'));
 
   describe('places controller', function(){
 

@@ -1,44 +1,68 @@
 @import "../../globals.scss";
 
 .place {
-    img {
-      width: 100%;
-      margin: 0px;
-      padding: 0px;
-    }
-    &-description {
-      margin-top: -4px;
-      opacity: 0.6;
-      background-color: $description-background;
-      padding: 5px 16px;
-      color: $white;
-    }
-    &-toolbar {
-      height: 60px;
-      background-color: $toolbar-background;
-      padding: 0px 16px;
-    }
 
-    &-author {
-      display: flex;
+  &-author {
+    display: flex;
+    background-color: $place-toolbar-background;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    .avatar {
+      width: 40px;
+      height: 40px;
+      @include circle(20px);
       background-color: $toolbar-background;
+    }
+    .name {
+      flex-grow: 1;
+      color: $headers-text;
       padding: 10px;
-      font-size: 1.2em;
-      .avatar {
-        width: 40px;
-        height: 40px;
-        @include circle(20px);
-        background-color: $white;
+    }
+    .distance {
+      color: $headers-text;
+      padding: 8px;
+    }
+  }
+
+  img {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  &-description {
+    margin-top: -4px;
+    background-color: $white;
+    padding: 5px 16px;
+    color: $main-text;
+    font-size: 1.2em;
+    a {
+      color: $main-text;
+    }
+    h3 {
+      color: $header-text;
+    }
+  }
+
+  &-toolbar {
+    height: 60px;
+    background-color: $place-toolbar-background;
+    padding: 0px 16px;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    md-icon {
+      padding: 16px 16px 0 0;
+      height: 36px;
+      width: 36px;
+      color: green;
+      &:nth-child(2) {
+        height: 21px;
+        width: 21px;
       }
-      .name {
-        flex-grow: 1;
-        color: $white;
-        padding: 10px;
-      }
-      .distance {
-        color: $white;
-        padding: 8px;
+      &:active, &:focus {
+        outline: none;
       }
     }
+  }
 
 }

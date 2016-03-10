@@ -9,7 +9,7 @@ angular.module('w2dmApp')
             scope: true,
             templateUrl: 'components/place/place.html',
             controller: ['$scope', function ($scope) {
-
+                $scope.placeTextLimit = 400;
             }]
         }
     }]);

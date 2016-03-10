@@ -1,8 +1,8 @@
 'use strict';
 
-describe('w2dmApp.map module', function() {
+describe('w2dmApp module', function() {
 
-  beforeEach(module('w2dmApp.map'));
+  beforeEach(module('w2dmApp'));
 
   describe('map controller', function() {
 

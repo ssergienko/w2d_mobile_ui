@@ -20,10 +20,11 @@ angular.module('w2dmApp', [
         })
         .otherwise({redirectTo: '/places'});
 }])
-.run(function ($window) {
+.run(function ($window, $rootScope) {
     angular.element(document).ready(function() {
         angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
     });
+    $rootScope.lifeSiteUrl = 'way2day.ru';
 });
 /**
  * Created by Sergei_Sergienko on 3/9/2016.
@@ -75,6 +76,21 @@ angular.module('w2dmApp')
         }
     }]);
 /**
+ * Created by Sergei_Sergienko on 3/9/2016.
+ */
+'use strict';
+
+angular.module('w2dmApp')
+    .directive('placeDirective', [function() {
+        return {
+            scope: true,
+            templateUrl: 'components/place/place.html',
+            controller: ['$scope', function ($scope) {
+                $scope.placeTextLimit = 400;
+            }]
+        }
+    }]);
+/**
  * Created by Sergei_Sergienko on 2/29/2016.
  */
 'use strict';
@@ -94,21 +110,6 @@ angular.module('w2dmApp')
                 }
             }]
         };
-    }]);
-/**
- * Created by Sergei_Sergienko on 3/9/2016.
- */
-'use strict';
-
-angular.module('w2dmApp')
-    .directive('placeDirective', [function() {
-        return {
-            scope: true,
-            templateUrl: 'components/place/place.html',
-            controller: ['$scope', function ($scope) {
-
-            }]
-        }
     }]);
 'use strict';
 
@@ -156,3 +157,26 @@ angular.module('w2dmApp')
             return place.image_url !== 'no-image.png';
         };
     }]);
+/**
+ * Created by Sergei_Sergienko on 3/10/2016.
+ */
+angular.module('w2dmApp')
+    .filter('cut', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            var newvalue = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = newvalue.lastIndexOf(' ');
+                if (lastspace != -1) {
+                    newvalue = newvalue.substr(0, lastspace);
+                }
+            }
+
+            return newvalue + (tail || ' …');
+        };
+    });

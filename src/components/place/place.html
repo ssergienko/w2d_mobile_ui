@@ -6,6 +6,10 @@
 <img ng-src="{{place.image_url}}" width="100%" />
 <div class="place-description">
     <h3>{{place.title}}</h3>
-    <p>{{place.long_text}}</p>
+    <p>{{place.long_text | cut:true:placeTextLimit:' ...'}}</p>
+    <p><a href="http://{{lifeSiteUrl}}/place/{{place.id}}">Read more</a></p>
 </div>
-<div class="place-toolbar"></div>
+<div class="place-toolbar">
+    <md-icon md-svg-icon="../img/icons/heart.svg" ng-click=""></md-icon>
+    <md-icon md-svg-icon="../img/icons/share.svg" ng-click=""></md-icon>
+</div>

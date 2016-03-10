@@ -20,8 +20,9 @@ angular.module('w2dmApp', [
         })
         .otherwise({redirectTo: '/places'});
 }])
-.run(function ($window) {
+.run(function ($window, $rootScope) {
     angular.element(document).ready(function() {
         angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
     });
+    $rootScope.lifeSiteUrl = 'way2day.ru';
 });
