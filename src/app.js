@@ -18,6 +18,10 @@ angular.module('w2dmApp', [
             templateUrl: 'controllers/map/map.html',
             controller: 'MapCtrl'
         })
+        .when('/map/:id', {
+            templateUrl: 'controllers/map/map.html',
+            controller: 'MapCtrl'
+        })
         .otherwise({redirectTo: '/places'});
 }])
 .run(function ($window, $rootScope) {

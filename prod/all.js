@@ -18,6 +18,10 @@ angular.module('w2dmApp', [
             templateUrl: 'controllers/map/map.html',
             controller: 'MapCtrl'
         })
+        .when('/map/:id', {
+            templateUrl: 'controllers/map/map.html',
+            controller: 'MapCtrl'
+        })
         .otherwise({redirectTo: '/places'});
 }])
 .run(function ($window, $rootScope) {
@@ -33,7 +37,7 @@ angular.module('w2dmApp')
     .factory('placesService',['$resource', function ($resource) {
         return $resource('http://devel.way2day.ru/api/places/getbycoords?lat=59.939095&lng=30.315868&_=1457518554341', {},
             {
-                'get': {method:'GET', isArray: true }
+                'get': { method:'GET', isArray: true }
             }
         );
 }]);
@@ -140,23 +144,6 @@ angular.module('w2dmApp.version', [
 
 .value('version', '0.1');
 
-'use strict';
-
-angular.module('w2dmApp')
-    .controller('MapCtrl', ['$scope', function($scope) {
-
-    }]);
-'use strict';
-
-angular.module('w2dmApp')
-    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
-        placesService.get().$promise.then(function(places) {
-            $scope.places = places;
-        });
-        $scope.noEmptyImages = function (place) {
-            return place.image_url !== 'no-image.png';
-        };
-    }]);
 /**
  * Created by Sergei_Sergienko on 3/10/2016.
  */
@@ -180,3 +167,20 @@ angular.module('w2dmApp')
             return newvalue + (tail || ' …');
         };
     });
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('MapCtrl', ['$scope', function($scope) {
+
+    }]);
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
+        placesService.get().$promise.then(function(places) {
+            $scope.places = places;
+        });
+        $scope.noEmptyImages = function (place) {
+            return place.image_url !== 'no-image.png';
+        };
+    }]);

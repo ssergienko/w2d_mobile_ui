@@ -5,9 +5,9 @@
   &-author {
     display: flex;
     background-color: $place-toolbar-background;
-    padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    padding: 10px 16px;
     .avatar {
       width: 40px;
       height: 40px;
@@ -17,11 +17,12 @@
     .name {
       flex-grow: 1;
       color: $headers-text;
-      padding: 10px;
+      margin: auto;
+      margin-left: 16px;
     }
     .distance {
       color: $headers-text;
-      padding: 8px;
+      margin: auto;
     }
   }
 
@@ -40,28 +41,37 @@
       color: $main-text;
     }
     h3 {
-      color: $header-text;
+      color: $headers-text;
     }
   }
 
   &-toolbar {
-    height: 60px;
+    display: flex;
     background-color: $place-toolbar-background;
-    padding: 0px 16px;
-    border-top: 1px solid #dedede;
-    border-bottom: 1px solid #dedede;
+    padding: 10px 16px;
+    border-top: 1px solid $line-on-white;
+    border-bottom: 1px solid $line-on-white;
     md-icon {
-      padding: 16px 16px 0 0;
       height: 36px;
       width: 36px;
-      color: green;
+      color: $toolbar-background;
       &:nth-child(2) {
         height: 21px;
         width: 21px;
+        margin-left: 16px;
       }
       &:active, &:focus {
         outline: none;
       }
+    }
+    .grow-box {
+      flex-grow: 1;
+    }
+    .likes {
+      color: $headers-text;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: auto;
     }
   }
 
