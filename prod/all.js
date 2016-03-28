@@ -30,6 +30,7 @@ angular.module('w2dmApp', [
         angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
     });
     $rootScope.lifeSiteUrl = 'way2day.ru';
+    $rootScope.appVersion = '2.0';
 });
 /**
  * Created by Sergei_Sergienko on 3/9/2016.
@@ -42,6 +43,46 @@ angular.module('w2dmApp')
             }
         );
 }]);
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('MapCtrl', ['$scope', function($scope) {
+
+    }]);
+'use strict';
+
+angular.module('w2dmApp')
+    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
+        placesService.get().$promise.then(function(places) {
+            $scope.places = places;
+        });
+        $scope.noEmptyImages = function (place) {
+            return place.image_url !== 'no-image.png';
+        };
+    }]);
+/**
+ * Created by Sergei_Sergienko on 3/10/2016.
+ */
+angular.module('w2dmApp')
+    .filter('cut', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            var newvalue = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = newvalue.lastIndexOf(' ');
+                if (lastspace != -1) {
+                    newvalue = newvalue.substr(0, lastspace);
+                }
+            }
+
+            return newvalue + (tail || ' …');
+        };
+    });
 'use strict';
 
 angular.module('w2dmApp')
@@ -118,70 +159,9 @@ angular.module('w2dmApp')
     }]);
 'use strict';
 
-angular.module('w2dmApp.version.interpolate-filter', [])
-
-.filter('interpolate', ['version', function(version) {
-  return function(text) {
-    return String(text).replace(/\%VERSION\%/mg, version);
-  };
-}]);
-
-'use strict';
-
-angular.module('w2dmApp.version.version-directive', [])
-
-.directive('appVersion', ['version', function(version) {
-  return function(scope, elm, attrs) {
-    elm.text(version);
-  };
-}]);
-
-'use strict';
-
-angular.module('w2dmApp.version', [
-  'w2dmApp.version.interpolate-filter',
-  'w2dmApp.version.version-directive'
-])
-
-.value('version', '0.1');
-
-'use strict';
-
 angular.module('w2dmApp')
-    .controller('MapCtrl', ['$scope', function($scope) {
-
-    }]);
-'use strict';
-
-angular.module('w2dmApp')
-    .controller('PlacesCtrl', ['$scope', 'placesService', function($scope, placesService) {
-        placesService.get().$promise.then(function(places) {
-            $scope.places = places;
-        });
-        $scope.noEmptyImages = function (place) {
-            return place.image_url !== 'no-image.png';
-        };
-    }]);
-/**
- * Created by Sergei_Sergienko on 3/10/2016.
- */
-angular.module('w2dmApp')
-    .filter('cut', function () {
-        return function (value, wordwise, max, tail) {
-            if (!value) return '';
-
-            max = parseInt(max, 10);
-            if (!max) return value;
-            if (value.length <= max) return value;
-
-            var newvalue = value.substr(0, max);
-            if (wordwise) {
-                var lastspace = newvalue.lastIndexOf(' ');
-                if (lastspace != -1) {
-                    newvalue = newvalue.substr(0, lastspace);
-                }
-            }
-
-            return newvalue + (tail || ' …');
-        };
-    });
+  .directive('version-directive', function() {
+    return function(scope, elm, attrs) {
+      elm.text(appVersion);
+    };
+  });

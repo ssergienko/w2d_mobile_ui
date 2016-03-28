@@ -54,7 +54,7 @@
     md-icon {
       height: 36px;
       width: 36px;
-      color: $toolbar-background;
+      color: $menu-background;
       &:nth-child(2) {
         height: 21px;
         width: 21px;
@@ -68,7 +68,7 @@
       flex-grow: 1;
     }
     .likes {
-      color: $headers-text;
+      color: $menu-background;
       font-weight: bold;
       font-size: 1.2em;
       margin: auto;

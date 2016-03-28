@@ -28,8 +28,9 @@
     "karma-jasmine": "^0.3.7",
     "karma-junit-reporter": "^0.2.2",
     "karma-spec-reporter": "0.0.24",
-    "protractor": "^2.1.0",
-    "shelljs": "^0.2.6"
+    "protractor": "^3.1.1",
+    "shelljs": "^0.2.6",
+    "webdriver-manager": "^8.0.0"
   },
   "scripts": {
     "postinstall": "bower install",

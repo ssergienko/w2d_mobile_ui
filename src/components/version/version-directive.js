@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('w2dmApp.version.version-directive', [])
-
-.directive('appVersion', ['version', function(version) {
-  return function(scope, elm, attrs) {
-    elm.text(version);
-  };
-}]);
+angular.module('w2dmApp')
+  .directive('version-directive', function() {
+    return function(scope, elm, attrs) {
+      elm.text(appVersion);
+    };
+  });

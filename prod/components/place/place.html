@@ -1,0 +1,17 @@
+<div class="place-author">
+    <div class="avatar"></div>
+    <div class="name">Vasiliy</div>
+    <div class="distance">{{place.distance | number: 0}} km</div>
+</div>
+<img ng-src="{{place.image_url}}" width="100%" />
+<div class="place-description">
+    <h3>{{place.title}}</h3>
+    <div ng-bind-html="place.long_text | cut:true:placeTextLimit:' ...'"></div>
+    <p><a href="http://{{lifeSiteUrl}}/place/{{place.id}}">Read more</a> / <a href="#map/{{place.id}}">View on a map</a></p>
+</div>
+<div class="place-toolbar">
+    <md-icon md-svg-icon="../img/icons/heart.svg" ng-click=""></md-icon>
+    <md-icon md-svg-icon="../img/icons/share.svg" ng-click=""></md-icon>
+    <div class="grow-box"></div>
+    <div class="likes">25 likes</div>
+</div>

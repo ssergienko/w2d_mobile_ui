@@ -1,6 +1,6 @@
 'use strict';
 
-describe('w2dmApp.places module', function() {
+describe('Places controller', function() {
 
   beforeEach(module('w2dmApp'));
 

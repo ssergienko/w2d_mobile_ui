@@ -25,7 +25,7 @@
             <div class="title">Way2day.ru</div>
 
             <md-button class="md-icon-button" aria-label="More" id="right-menu-button">
-                <md-icon md-svg-icon="../img/icons/plus.svg" ng-click=""></md-icon>
+                <md-icon md-svg-icon="../img/icons/search.svg" ng-click=""></md-icon>
             </md-button>
         </toolbar>
 
@@ -33,9 +33,10 @@
 
             <div ng-view></div>
 
-            <div>Angular seed app: v<span app-version></span></div>
-
         </md-content>
+
+        <footer>Angular seed app: v<span version-directive></span></footer>
+
     </div>
 
     <!-- In production use:
@@ -59,9 +60,7 @@
     <script src="components/menu/menu-directive.js"></script>
     <script src="components/toolbar/toolbar-directive.js"></script>
     <script src="components/place/place-directive.js"></script>
-    <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
-    <script src="components/version/interpolate-filter.js"></script>
 
 </body>
 </html>

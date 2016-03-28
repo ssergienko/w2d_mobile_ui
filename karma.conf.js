@@ -15,7 +15,7 @@ module.exports = function(config){
 
       'dev/*.js',
       'dev/**/*.js',
-      'e2e-tests/**/*.js'
+      'unit-tests/**/*.js'
 
     ],
 

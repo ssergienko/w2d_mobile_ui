@@ -1,0 +1,61 @@
+.place-author {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.87);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 16px; }
+  .place-author .avatar {
+    width: 40px;
+    height: 40px;
+    -moz-border-radius: 1;
+    -webkit-border-radius: 20px 20px;
+    border-radius: 1;
+    background-color: #3f51b5; }
+  .place-author .name {
+    flex-grow: 1;
+    color: #1a2c51;
+    margin: auto;
+    margin-left: 16px; }
+  .place-author .distance {
+    color: #1a2c51;
+    margin: auto; }
+
+.place img {
+  width: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+.place-description {
+  margin-top: -4px;
+  background-color: rgba(255, 255, 255, 0.87);
+  padding: 5px 16px;
+  color: #111111;
+  font-size: 1.2em; }
+  .place-description a {
+    color: #111111; }
+  .place-description h3 {
+    color: #1a2c51; }
+
+.place-toolbar {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.87);
+  padding: 10px 16px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede; }
+  .place-toolbar md-icon {
+    height: 36px;
+    width: 36px;
+    color: #47a3da; }
+    .place-toolbar md-icon:nth-child(2) {
+      height: 21px;
+      width: 21px;
+      margin-left: 16px; }
+    .place-toolbar md-icon:active, .place-toolbar md-icon:focus {
+      outline: none; }
+  .place-toolbar .grow-box {
+    flex-grow: 1; }
+  .place-toolbar .likes {
+    color: #47a3da;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: auto; }

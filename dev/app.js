@@ -30,4 +30,5 @@ angular.module('w2dmApp', [
         angular.element(document.querySelector("#content")).css("height", $window.innerHeight+'px');
     });
     $rootScope.lifeSiteUrl = 'way2day.ru';
+    $rootScope.appVersion = '2.0';
 });
